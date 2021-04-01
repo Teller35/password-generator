@@ -1,32 +1,34 @@
 // Assignment code here
 function generatePassword() {
-  var passwordLength = Number(prompt("Pick a number between 8 and 128."));
-  if (passwordLength < 8 || passwordLength > 128) {
+  var length = Number(prompt("Pick a number between 8 and 128."));
+  if (length < 8 || length > 128) {
     generatePassword();
   }
-  else {
-    options();
-  }
-  console.log(passwordLength);
-}
-var options = function() { 
+
+  console.log(length);
+ 
  var choices = prompt("Enter 'L' for lowercase, 'U' for uppercase, 'N' for numeric, or 'C' for character.");
+ console.log(choices);
  var passwordSet = "";
- var choicesTypeLower = choicesTypeLower.toLowerCase();
- if (choicesTypeLower === "l") {
+ var choices = choices.toLowerCase();
+ if (choices === "l") {
    passwordSet = "abcdefghijklmnopqrstuvwxyz";
  }
- else if (choicesTypeLower === "u") {
+ else if (choices === "u") {
    passwordSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
  }
- else if (choicesTypeLower === "n") {
+ else if (choices === "n") {
    passwordSet = "1234567890"
  }
- else if (choicesTypeLower === "c") {
+ else if (choices === "c") {
    passwordSet = "~!@#$%^&*()_-+={}[]|<>.?/;:"
  }  
- var returnValue = "";
- for (var i = 0; i < passwordLength; i++)  
+ var passValue = "";
+ for (var i = 0; i < length; i++) {
+   passValue += passwordSet.charAt(Math.floor(Math.random() * passwordSet.length));
+ } 
+ console.log(passValue);
+ return passValue; 
 }
 
 
@@ -41,18 +43,6 @@ function writePassword() {
   passwordText.value = password;
 
 }
-// var passwordInfo = {
-// numeric: function() {
-//   Math.floor(Math.random());
-// },
-// lowerCase: "",  
-// upperCase: "", 
-// characters: "",  
-// numeric: 
-// }
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-var n = ["1234567890"]
-var l = ["abcdefghijklmnopqrstuvwxyz"]
-var u = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
-var c = ["~!@#$%^&*()_-+={}[]|<>.?/;:"]
