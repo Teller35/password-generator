@@ -4,31 +4,33 @@ function generatePassword() {
   if (length < 8 || length > 128) {
     generatePassword();
   }
+  else {
 
   console.log(length);
- 
+
  var choices = prompt("Enter 'L' for lowercase, 'U' for uppercase, 'N' for numeric, or 'C' for character.");
  console.log(choices);
  var passwordSet = "";
  var choices = choices.toLowerCase();
  if (choices === "l") {
    passwordSet = "abcdefghijklmnopqrstuvwxyz";
- }
- else if (choices === "u") {
-   passwordSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
- }
- else if (choices === "n") {
-   passwordSet = "1234567890"
- }
- else if (choices === "c") {
-   passwordSet = "~!@#$%^&*()_-+={}[]|<>.?/;:"
- }  
- var passValue = "";
- for (var i = 0; i < length; i++) {
-   passValue += passwordSet.charAt(Math.floor(Math.random() * passwordSet.length));
- } 
- console.log(passValue);
- return passValue; 
+  }
+  else if (choices === "u") {
+    passwordSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  }
+  else if (choices === "n") {
+    passwordSet = "1234567890"
+  }
+  else if (choices === "c") {
+    passwordSet = "~!@#$%^&*()_-+={}[]|<>.?/;:"
+  }  
+  var passwordText = "";
+  for (var i = 0; i < length; i++) {
+    passwordText += passwordSet.charAt(Math.floor(Math.random() * passwordSet.length));
+  } 
+  console.log(passwordText);
+  return passwordText; 
+}
 }
 
 
