@@ -8,7 +8,7 @@ function generatePassword() {
 
   console.log(length);
 
- var choices = prompt("Enter 'L' for lowercase, 'U' for uppercase, 'N' for numeric, or 'C' for character.");
+ var choices = prompt("Enter 'L' for lowercase, 'U' for uppercase, 'N' for numeric, 'C' for character or 'A' for all.");
  console.log(choices);
  var passwordSet = "";
  var choices = choices.toLowerCase();
@@ -22,7 +22,10 @@ function generatePassword() {
     passwordSet = "1234567890"
   }
   else if (choices === "c") {
-    passwordSet = "~!@#$%^&*()_-+={}[]|<>.?/;:"
+    passwordSet = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+  }
+  else if (choices === "a") {
+    passwordSet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
   }  
   var passwordText = "";
   for (var i = 0; i < length; i++) {
