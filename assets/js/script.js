@@ -5,40 +5,50 @@ function generatePassword() {
     generatePassword();
   }
   else {
-
-  console.log(length);
+  
+ console.log(length);
 
  var lower = confirm("Would you like lowercase?");
- var upper = confirm("Would you like uppercase?");
- var number = confirm("Would you like numeric?");
- var character = confirm("Would you like special characters?");
- console.log(lower);
- console.log(upper);
- console.log(number);
- console.log(character);
-
- var passwordSet = "";
- 
  if (lower) {
-   passwordSet = "abcdefghijklmnopqrstuvwxyz";
-  }
-  if (upper) {
-    passwordSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  }
-  if (number) {
-    passwordSet = "1234567890"
-  }
-  if (character) {
-    passwordSet = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
-  }
+  lower = "abcdefghijklmnopqrstuvwxyz";
+ }
+ var upper = confirm("Would you like uppercase?");
+ if (upper) {
+  upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+}
+ var number = confirm("Would you like numeric?");
+ if (number) {
+  number = "1234567890";
+}
+ var character = confirm("Would you like special characters?");
+ if (character) {
+  character = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+}
+
+var passwordSet = "";
+
+if (lower) {
+  passwordSet += lower
+} 
+if (upper) {
+  passwordSet += upper
+} 
+if (number) {
+  passwordSet += number
+} 
+if (character) {
+  passwordSet += character
+} 
   var passwordText = "";
-  for (var i = 0; i < length; i++) {
-    passwordText += passwordSet.charAt(Math.floor(Math.random() * passwordSet.length));
-  } 
+
+  for (var i = 0; i < length; i += 1) {
+    passwordText += passwordSet[Math.floor(Math.random() * passwordSet.length)];
+  }
   console.log(passwordText);
   return passwordText; 
 }
 }
+
 
 
 // Get references to the #generate element
