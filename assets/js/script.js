@@ -8,25 +8,29 @@ function generatePassword() {
 
   console.log(length);
 
- var choices = prompt("Enter 'L' for lowercase, 'U' for uppercase, 'N' for numeric, 'C' for character or 'A' for all.");
- console.log(choices);
+ var lower = confirm("Would you like lowercase?");
+ var upper = confirm("Would you like uppercase?");
+ var number = confirm("Would you like numeric?");
+ var character = confirm("Would you like special characters?");
+ console.log(lower);
+ console.log(upper);
+ console.log(number);
+ console.log(character);
+
  var passwordSet = "";
- var choices = choices.toLowerCase();
- if (choices === "l") {
+ 
+ if (lower) {
    passwordSet = "abcdefghijklmnopqrstuvwxyz";
   }
-  else if (choices === "u") {
+  if (upper) {
     passwordSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   }
-  else if (choices === "n") {
+  if (number) {
     passwordSet = "1234567890"
   }
-  else if (choices === "c") {
+  if (character) {
     passwordSet = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
   }
-  else if (choices === "a") {
-    passwordSet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
-  }  
   var passwordText = "";
   for (var i = 0; i < length; i++) {
     passwordText += passwordSet.charAt(Math.floor(Math.random() * passwordSet.length));
